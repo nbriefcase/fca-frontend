@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UserlistingComponent } from './userlisting/userlisting.component';
 import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
     LoginComponent,
     HomeComponent,
     UserlistingComponent,
-    UpdatepopupComponent
+    UpdatepopupComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,

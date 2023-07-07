@@ -10,30 +10,30 @@
       "isActive": true
     },
     {
-      "id": "asdasdasd",
-      "name": "asdasdasd",
-      "password": "asdasdasd",
-      "email": "aasdasd@asdasd.com",
+      "id": "quality",
+      "name": "quality",
+      "password": "123",
+      "email": "quality@quality.com",
       "gender": "male",
       "role": "quality",
       "isActive": false
     },
     {
-      "id": "tony123",
+      "id": "staff1",
       "name": "tony",
       "password": "123",
-      "email": "tony@admin.com",
+      "email": "staff1@staff1.com",
       "gender": "male",
       "role": "staff",
       "isActive": true
     },
     {
-      "id": "tony1234",
-      "name": "tony4",
-      "password": "1234",
-      "email": "tony4@admin.com",
+      "id": "tech12",
+      "name": "tech12",
+      "password": "123",
+      "email": "tech12@tech12.com",
       "gender": "male",
-      "role": "",
+      "role": "tech",
       "isActive": true
     },
     {
@@ -63,6 +63,85 @@
     {
       "code": "quality",
       "name": "Quality"
+    }
+  ],
+  "menu": [
+    {
+      "code": "user",
+      "name": "User"
+    },
+    {
+      "code": "customer",
+      "name": "Customer"
+    }
+  ],
+  "roleaccess": [
+    {
+      "role": "admin",
+      "menu": "user",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": true
+    },
+    {
+      "role": "admin",
+      "menu": "customer",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": true
+    },
+    {
+      "role": "user",
+      "menu": "user",
+      "haveedit": false,
+      "haveadd": false,
+      "havedelete": false
+    },
+    {
+      "role": "user",
+      "menu": "customer",
+      "haveedit": true,
+      "haveadd": true,
+      "havedelete": false
+    },
+    {
+      "role": "tech",
+      "menu": "customer",
+      "haveedit": false,
+      "haveadd": true,
+      "havedelete": false
+    }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "david",
+      "creditlimit": 1000
+    },
+    {
+      "id": 2,
+      "name": "tony",
+      "creditlimit": 1000
+    },
+    {
+      "id": 3,
+      "name": "jaimito",
+      "creditlimit": 1000
+    },
+    {
+      "id": 4,
+      "name": "luis",
+      "creditlimit": 1000
+    },
+    {
+      "id": 5,
+      "name": "pedro",
+      "creditlimit": 1000
+    },
+    {
+      "id": 6,
+      "name": "juan",
+      "creditlimit": 1000
     }
   ]
 }

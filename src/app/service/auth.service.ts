@@ -40,4 +40,12 @@ export class AuthService {
   GetAllRole() {
     return this.http.get('http://localhost:3000/role');
   }
+
+  GetAllCustomer() {
+    return this.http.get('http://localhost:3000/customer');
+  }
+
+  GetAccessByRole(role: any, menu: any) {
+    return this.http.get('http://localhost:3000/roleaccess?role=' + role + '&menu=' + menu);
+  }
 }
