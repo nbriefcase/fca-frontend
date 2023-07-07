@@ -1,5 +1,22 @@
 {
   "user": [
-
+    {
+      "id": "admin",
+      "name": "Admin User",
+      "password": "123",
+      "email": "admin@in.com",
+      "gender": "male",
+      "role": "admin",
+      "isActive": true
+    },
+    {
+      "id": "asdasdasd",
+      "name": "asdasdasd",
+      "password": "asdasdasd",
+      "email": "aasdasd@asdasd.com",
+      "gender": "male",
+      "role": "",
+      "isActive": false
+    }
   ]
 }
