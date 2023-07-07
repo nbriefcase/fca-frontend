@@ -17,6 +17,8 @@ export class LoginComponent {
     private service: AuthService,
     private router: Router) {
 
+    sessionStorage.clear();
+
   }
 
   userData: any;

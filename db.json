@@ -15,8 +15,54 @@
       "password": "asdasdasd",
       "email": "aasdasd@asdasd.com",
       "gender": "male",
-      "role": "",
+      "role": "quality",
       "isActive": false
+    },
+    {
+      "id": "tony123",
+      "name": "tony",
+      "password": "123",
+      "email": "tony@admin.com",
+      "gender": "male",
+      "role": "staff",
+      "isActive": true
+    },
+    {
+      "id": "tony1234",
+      "name": "tony4",
+      "password": "1234",
+      "email": "tony4@admin.com",
+      "gender": "male",
+      "role": "",
+      "isActive": true
+    },
+    {
+      "id": "tony12345",
+      "name": "tony5",
+      "password": "12345",
+      "email": "tony5@admin.com",
+      "gender": "male",
+      "role": "",
+      "isActive": true
+    },
+    {
+      "id": "tony123456",
+      "name": "tony6",
+      "password": "123456",
+      "email": "tony6@admin.com",
+      "gender": "male",
+      "role": "",
+      "isActive": true
+    }
+  ],
+  "role": [
+    {
+      "code": "staff",
+      "name": "Staff"
+    },
+    {
+      "code": "quality",
+      "name": "Quality"
     }
   ]
 }
