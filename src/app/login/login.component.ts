@@ -22,6 +22,7 @@ export class LoginComponent {
   }
 
   userData: any;
+  authResponse: any;
   loginForm = this.builder.group({
     username: this.builder.control('', Validators.required),
     password: this.builder.control('', Validators.required)
@@ -32,6 +33,17 @@ export class LoginComponent {
     } else {
       this.toastr.warning('Por favor, corrija el error en datos y intenten de nuevo.');
     }
+
+    console.log('calling auth...');
+    let username = this.loginForm.value.username || '';
+    let password = this.loginForm.value.password;
+    this.service.Authenticate({ email: username, password }).subscribe(res => {
+      this.authResponse = res;
+      sessionStorage.setItem("accessToken", this.authResponse.access_token);
+      sessionStorage.setItem("refreshToken", this.authResponse.refresh_token);
+      sessionStorage.setItem("username", username);
+    });
+    console.log('finished auth...');
 
     this.service.GetByCode(this.loginForm.value.username).subscribe(res => {
       this.userData = res;

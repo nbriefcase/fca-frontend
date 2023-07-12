@@ -11,6 +11,18 @@ export class AuthService {
   }
 
   apiUrl = 'http://localhost:3000/user';
+  authResponse: any;
+  registerResponse: any;
+
+  Authenticate(credential: any) {
+    console.log(credential);
+    return this.http.post('api/v1/auth/authenticate', credential);
+  }
+
+
+  AuthProceedRegister(inputData: any) {
+    return this.http.post('api/v1/auth/register', inputData);
+  }
 
   GetAll() {
     return this.http.get(this.apiUrl);
