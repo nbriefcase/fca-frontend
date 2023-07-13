@@ -39,15 +39,22 @@ export class CustomerComponent {
   }
 
   SetAccessPermission() {
-    this.service.GetAccessByRole(this.service.GetUserRole(), 'customer').subscribe(res => {
-      this.accessData = res;
-      console.log(this.accessData);
-      if (this.accessData.length > 0) {
-        this.haveAdd = this.accessData[0].haveadd;
-        this.haveEdit = this.accessData[0].haveedit;
-        this.haveDelete = this.accessData[0].havedelete;
-        this.LoadCustomer();
-      } else {
+    // https://rxjs.dev/deprecations/subscribe-arguments
+    this.service.GetAccessByRole(this.service.GetUserRole(), 'customer').subscribe({
+      next: res => {
+        this.accessData = res;
+        console.log(this.accessData);
+        if (this.accessData.length > 0) {
+          this.haveAdd = this.accessData[0].haveadd;
+          this.haveEdit = this.accessData[0].haveedit;
+          this.haveDelete = this.accessData[0].havedelete;
+          this.LoadCustomer();
+        } else {
+          alert('No autorizado!');
+          this.router.navigate(['']);
+        }
+      },
+      error: err => {
         alert('No autorizado!');
         this.router.navigate(['']);
       }

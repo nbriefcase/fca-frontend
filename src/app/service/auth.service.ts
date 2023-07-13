@@ -10,47 +10,50 @@ export class AuthService {
 
   }
 
-  apiUrl = 'http://localhost:3000/user';
+  headers = { 'Authorization': 'Bearer my-token' }
+  userBaseUrl = 'users';
+  rolBaseUrl = 'roles';
+  authBaseUrl = 'api/v1/auth';
   authResponse: any;
   registerResponse: any;
 
   Authenticate(credential: any) {
-    console.log(credential);
-    return this.http.post('api/v1/auth/authenticate', credential);
+    return this.http.post(this.authBaseUrl + '/authenticate', credential);
   }
 
 
   AuthProceedRegister(inputData: any) {
-    return this.http.post('api/v1/auth/register', inputData);
+    return this.http.post(this.authBaseUrl + '/register', inputData);
   }
 
   GetAll() {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.userBaseUrl);
   }
 
   GetByCode(code: any) {
-    return this.http.get(this.apiUrl + '/' + code);
+    this.populateToken();
+    return this.http.get(this.userBaseUrl + '/' + code, { headers: this.headers });
   }
 
   ProceedRegister(inputData: any) {
-    return this.http.post(this.apiUrl, inputData);
+    return this.http.post(this.userBaseUrl, inputData);
   }
 
   UpdateUser(code: any, inputData: any) {
-    return this.http.put(this.apiUrl + '/' + code, inputData);
+    return this.http.put(this.userBaseUrl + '/' + code, inputData);
   }
 
   IsLoggedIn() {
-    return sessionStorage.getItem('username') != null;
+    return localStorage.getItem('username') != null;
   }
 
   GetUserRole() {
-    const userRole = sessionStorage.getItem('userRole');
+    const userRole = localStorage.getItem('userRole');
     return userRole != null ? userRole?.toString() : '';
   }
 
   GetAllRole() {
-    return this.http.get('http://localhost:3000/role');
+    return this.http.get(this.rolBaseUrl);
   }
 
   GetAllCustomer() {
@@ -58,6 +61,11 @@ export class AuthService {
   }
 
   GetAccessByRole(role: any, menu: any) {
-    return this.http.get('http://localhost:3000/roleaccess?role=' + role + '&menu=' + menu);
+    return this.http.get(this.rolBaseUrl + '/role-access?role=' + role + '&menu=' + menu);
+  }
+
+  populateToken() {
+    const token = localStorage.getItem('accessToken');
+    this.headers = { 'Authorization': 'Bearer ' + (token != null ? token?.toString() : '') }
   }
 }

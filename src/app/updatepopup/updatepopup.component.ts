@@ -38,7 +38,7 @@ export class UpdatepopupComponent implements OnInit {
           password: this.editData.password,
           role: this.editData.role,
           gender: this.editData.gender,
-          isActive: this.editData.isActive
+          active: this.editData.active
         })
       })
     }
@@ -52,7 +52,7 @@ export class UpdatepopupComponent implements OnInit {
     email: this.builder.control(''),
     gender: this.builder.control('male'),
     role: this.builder.nonNullable.control(''),
-    isActive: this.builder.control(false),
+    active: this.builder.control(false),
   });
 
   UpdateUser() {

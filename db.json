@@ -7,7 +7,7 @@
       "email": "admin@in.com",
       "gender": "male",
       "role": "admin",
-      "isActive": true
+      "active": true
     },
     {
       "id": "quality",
@@ -16,7 +16,7 @@
       "email": "quality@quality.com",
       "gender": "male",
       "role": "quality",
-      "isActive": false
+      "active": false
     },
     {
       "id": "staff1",
@@ -25,7 +25,7 @@
       "email": "staff1@staff1.com",
       "gender": "male",
       "role": "staff",
-      "isActive": true
+      "active": true
     },
     {
       "id": "tech12",
@@ -34,7 +34,7 @@
       "email": "tech12@tech12.com",
       "gender": "male",
       "role": "tech",
-      "isActive": true
+      "active": true
     },
     {
       "id": "tony12345",
@@ -43,7 +43,7 @@
       "email": "tony5@admin.com",
       "gender": "male",
       "role": "",
-      "isActive": true
+      "active": true
     },
     {
       "id": "tony123456",
@@ -52,7 +52,7 @@
       "email": "tony6@admin.com",
       "gender": "male",
       "role": "",
-      "isActive": true
+      "active": true
     }
   ],
   "role": [

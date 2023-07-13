@@ -17,7 +17,7 @@ export class LoginComponent {
     private service: AuthService,
     private router: Router) {
 
-    sessionStorage.clear();
+    localStorage.clear();
 
   }
 
@@ -39,32 +39,24 @@ export class LoginComponent {
     let password = this.loginForm.value.password;
     this.service.Authenticate({ email: username, password }).subscribe(res => {
       this.authResponse = res;
-      sessionStorage.setItem("accessToken", this.authResponse.access_token);
-      sessionStorage.setItem("refreshToken", this.authResponse.refresh_token);
-      sessionStorage.setItem("username", username);
-    });
-    console.log('finished auth...');
+      localStorage.setItem('accessToken', this.authResponse.access_token);
+      localStorage.setItem('refreshToken', this.authResponse.refresh_token);
+      localStorage.setItem('username', username);
 
-    this.service.GetByCode(this.loginForm.value.username).subscribe(res => {
-      this.userData = res;
-      console.log(this.userData);
+      this.service.GetByCode(username).subscribe(res => {
+        this.userData = res;
+        console.log(this.userData);
 
-      if (this.userData.password === this.loginForm.value.password) {
-
-        if (this.userData.isActive) {
-          sessionStorage.setItem('username', this.userData.id);
-          sessionStorage.setItem('userRole', this.userData.role);
+        if (this.userData.active) {
+          localStorage.setItem('userRole', this.userData.role);
           this.router.navigate(['']);
 
         } else {
-
           this.toastr.warning('Contacte al administrador!', 'Usuario Inactivo!');
         }
 
-      } else {
-
-        this.toastr.warning('Clave incorrecta!');
-      }
+      });
+      console.log('finished auth...');
     });
   }
 }

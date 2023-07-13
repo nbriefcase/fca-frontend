@@ -29,7 +29,7 @@ export class RegisterComponent {
     email: this.builder.control('', Validators.compose([Validators.required, Validators.email])),
     gender: this.builder.control('male'),
     role: this.builder.control(''),
-    isActive: this.builder.control(false),
+    active: this.builder.control(false),
   });
 
   proceedRegistration() {
@@ -48,8 +48,8 @@ export class RegisterComponent {
 
         this.registerResponse = res;
         console.log(this.registerResponse);
-        sessionStorage.setItem("accessToken", this.registerResponse.accessToken);
-        sessionStorage.setItem("refreshToken", this.registerResponse.refreshToken);
+        localStorage.setItem("accessToken", this.registerResponse.accessToken);
+        localStorage.setItem("refreshToken", this.registerResponse.refreshToken);
 
 
         this.toastr.success('Contacte al administrador para activar su cuenta!', 'Se ha registrado exitosamente!');
